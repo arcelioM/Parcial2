@@ -16,10 +16,10 @@ if($_SESSION['REQUEST_METHOD']='POST'){
     if(!empty($_POST['index'])){
 
         $index=$_POST['index'];
-        $inventory=$_SESSION['inventory'];
-        $inventoryItems=$inventory->getItems();
+        $inventory=&$_SESSION['inventory'];
+        $inventoryItems=&$inventory->getItems();
 
-        $item=$inventoryItems[$index];
+        $item=&$inventoryItems[$index];
         if($item instanceof Consumable){
 
             if($item->isComsumed()){

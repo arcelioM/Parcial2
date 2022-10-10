@@ -10,12 +10,9 @@ if($_SERVER["REQUEST_METHOD"]=='GET'){
     
     if(!isset($_SESSION['inventory'])){
         createInvetory();
-        echo "CREANDO";
+        echo true;
     }
     
-    echo "<pre>";
-    var_dump($_SESSION['inventory']);
-    echo "</pre>";
 }
 
 function createInvetory(){
@@ -44,22 +41,3 @@ function createInvetory(){
     var_dump($invetory->getItems());
     echo "</pre>";*/
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <form action="addItemInventory.php" method="post">
-        <input type="text" name="item" id="item">
-        <input type="text" name="slices" id="slices">
-        <input type="text" name="spoiled" id="spoiled">
-        <input type="submit" value="VERIFICAR ADD">
-    </form>
-</body>
-</html>

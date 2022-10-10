@@ -16,6 +16,8 @@ abstract class Consumable extends Item{
         $this->spoiled=$spoiled;
     }
 
+    
+
     public  function use():String{
         return $this->eat();
     }
