@@ -43,5 +43,9 @@ $(function () {
         $(location).attr('href',"search.html");
     });
 
+    $("#see").on("click", function () {
+        $(location).attr('href',"Inventory.html");
+    });
+
 
 });
