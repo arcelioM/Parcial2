@@ -6,7 +6,7 @@ use model\item\Item as Item;
 
 abstract class Consumable extends Item{
 
-    private bool $consumable;//**SI YA HA SIDO CONSUMIDO */
+    private bool $consumable;//**SI ES CONSUMIBLE CONSUMIDO */
     private bool $spoiled; //*SI ESTA DAÑADO O NO */
 
     public function __construct(String $name, int $value, float $weight,bool $consumable, bool $spoiled)
