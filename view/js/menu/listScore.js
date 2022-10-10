@@ -12,10 +12,12 @@ $(function () {
         let jsonUsers=JSON.parse(response);
         let infoUser="";
         
-        for(let i=0;i<jsonUsers.length;i++){
-           infoUser=infoUser+"<tr> <td> "+jsonUsers[i].id +
-           "</td> <td>"+jsonUsers[i].user + "</td> <td>"+jsonUsers[i].edad+
-          "</td> <td> <img src='img/"+jsonUsers[i].numImg+".png' alt='imagen 2' width='100px' height='100px'> </td> </tr>";
+        if(jsonUsers.length>0){
+            for(let i=0;i<jsonUsers.length;i++){
+                infoUser=infoUser+"<tr> <td> "+jsonUsers[i].id +
+                "</td> <td>"+jsonUsers[i].user + "</td> <td>"+jsonUsers[i].edad+
+               "</td> <td> <img src='img/"+jsonUsers[i].numImg+".png' alt='imagen 2' width='100px' height='100px'> </td> </tr>";
+             } 
         }
 
         $("#bodyTableUsersList").html(infoUser);

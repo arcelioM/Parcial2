@@ -41,6 +41,7 @@ $(function () {
      * *FUNCION VALIDARA SI EL USUARIO SE CREO, SEGUN LA RESPUESTA QUE HAYA ENVIADO EL WEBSERVICE
      */
     function validateCreate(response){
+        
         if(response){
             $(location).attr('href',"menu/menu.html");
         }else{

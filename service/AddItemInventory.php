@@ -25,7 +25,9 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
 
         $inventoryItems=$inventory->getItems();
 
-        echo json_encode($inventoryItems);
+        $_SESSION['inventory']=$inventory;
+
+        echo json_encode(true);
 
         /*echo "<pre>";
         var_dump($item);
@@ -46,9 +48,9 @@ function createItem($values){
     $nameItem=$values['item'];
 
     if($nameItem==="pizza"){
-        $numverOfSlice=$values['slices'];
+        $numberOfSlice=$values['slices'];
         $spoiled=$values['spoiled'];
-        $item=new Pizza($numverOfSlice,$spoiled);
+        $item=new Pizza($numberOfSlice,$spoiled);
 
     }elseif($nameItem==="sword" || $nameItem==="bow"){
         $baseDamage=$values['baseDamage'];
