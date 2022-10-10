@@ -6,12 +6,12 @@
         if(!empty($_POST['index'])){
 
             $index=$_POST['index'];
-            $durabilityModifier=$_POST['duModifier'];
+
             $inventory=&$_SESSION['inventory'];
             $inventoryItems=&$inventory->getItems();
 
             $item=$inventoryItems[$index];
-            $item->setDurabilityModifier($durabilityModifier);
+            $item->polish();;
 
             $inventoryItems[$index]=$item;
             echo json_encode($item);

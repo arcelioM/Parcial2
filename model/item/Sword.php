@@ -20,8 +20,8 @@ class Sword extends Weapon{
          * *VALIDO QUE EL AUMENTO NO HAYA SUPERADO EL 25% DEL VALOR INICIAL DE 'BASEDAMAGE'
          */
         if($this->baseDamageDefault < $this->baseDamageInitial){
-            $increDamage=parent::getBaseDamage()+parent::MODIFIER_CHANGE_RATE;
-            parent::setBaseDamage($increDamage);
+            $increDamage=parent::getDamageModifier()+parent::MODIFIER_CHANGE_RATE;
+            parent::setDamageModifier($increDamage);
         }
 
     }
