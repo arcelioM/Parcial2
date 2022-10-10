@@ -24,13 +24,16 @@ $(function () {
      * *FUNCION QUE HAYA LLAMADO AL SERVICIO PARA AGREGAR USUARIO A SESSION EN BACKEND
      */
     function createUserWebService(user){
-
+       
         $.ajax({
             type: "POST",
             url: "../service/User.php",
             data: user,
             dataType: "json",
             success: validateCreate,
+            error: function(error){
+                alert("error");
+            }
         });
     }
 
@@ -96,4 +99,8 @@ $(function () {
         }
         numImg=3;
     });
+
+
+
+    
 });

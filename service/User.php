@@ -9,8 +9,15 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $user=$_POST['user'];
         $edad=$_POST['edad'];
         $numImg=$_POST['numImg'];
-        $newUser=new User($user,$edad,$numImg);
+
+        if(!isset($_SESSION['idUserCont'])){
+            $_SESSION['idUserCont']=0;
+        }
+
+        $cont=$_SESSION['idUserCont'];
+        $newUser=new User($cont,$user,$edad,$numImg);
         createUserSession($newUser);
+        $_SESSION['idUserCont']=++$cont;
         
         echo "true";
 
@@ -20,10 +27,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     if(!isset($_SESSION['user'])){
         echo "ERROR, NO HA SIDO CREADO EL INVENTARIO";
     }else{
-        $user =$_SESSION['user'];
+        $user=$_SESSION['user'];
 
         $userSend=array(
-            'id'=> User::getId(),
+            'id'=> $user->id,
             'user'=> $user->user,
             'edad'=> $user->edad,
             'numImg'=> $user->numImg
@@ -35,6 +42,19 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
 function createUserSession($user){
     $_SESSION['user']=$user;
+    addUserList($user);
+}
+
+function addUserList($user){
+    $users=null;
+    if(!isset($_SESSION['userList'])){
+        $users=array();
+        $_SESSION['userList']=$users;
+    }
+    $users=$_SESSION['userList'];
+
+    array_push($users,$user);
+    $_SESSION['userList']=$users;  
 }
 
 ?>

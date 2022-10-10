@@ -4,14 +4,13 @@ namespace model;
 
 class User{
 
-    private static int $id=0;
+    private  int $id;
     private String $user;
     private int $edad;
     private int $numImg;
 
-    public function __construct(String $user, int $edad,int $numImg)
-    {
-        User::$id++;
+    public function __construct(int $id,String $user, int $edad,int $numImg){
+        $this->id=$id;
         $this->user=$user;
         $this->edad=$edad;
         $this->numImg=$numImg;
@@ -29,9 +28,5 @@ class User{
         if(property_exists($this,$property)){
             $this->$property=$value;
         }
-    }
-
-    public static function getId():int{
-        return User::$id;
     }
 }
