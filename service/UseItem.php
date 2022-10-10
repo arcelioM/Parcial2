@@ -1,5 +1,5 @@
 <?php 
-
+    require_once("../autoloads.php");
     session_start();
 
     if($_SESSION['REQUEST_METHOD']='GET'){
