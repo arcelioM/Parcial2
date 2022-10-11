@@ -5,22 +5,43 @@ $(function () {
 
     $.ajax({
         type: "GET",
-        url: "../../service/GetInventory.php",
+        url: "../../service/GetInventoryWeapon.php",
         success: function (response) {
-            /*alert(response[1]);
+            
             let jsonItems=JSON.parse(response);
-            let itemsString="";
+            let itemsWeapon="";
             
             for(let i=0;i<jsonItems.length;i++){
-                if(jsonItems[i].name=="pizza"){
-                    itemsString=itemsString+jsonItems[i].name+" "+jsonItems[i].value
+                if(jsonItems[i].name=="Bow" || jsonItems[i].name=="Sword"){
+                    itemsWeapon=itemsWeapon+"<tr><td>"+jsonItems[i].name+"</td> <td>"+jsonItems[i].value+"</td>"+
+                    "<td>"+jsonItems[i].weight+"</td>"+"<td>"+jsonItems[i].damage+"</td> <td>"+jsonItems[i].durability+"</td></tr>";
                 }
-
-                if(jsonItems[i].name=="bow" || jsonItems[i].name=="sword"){
-                    itemsString=itemsString+jsonItems[i].name+" "+jsonItems[i].value
-                }
-            }*/
-            $("#inventory").append(response);
+            }
+  
+            $("#bodyWea").html(itemsWeapon);
         }
+    });
+
+    $.ajax({
+        type: "GET",
+        url: "../../service/GetInventoryConsumable.php",
+        success: function (response) {
+            
+            let jsonItems=JSON.parse(response);
+            let itemsConsumable="";
+            
+            for(let i=0;i<jsonItems.length;i++){
+                if(jsonItems[i].name=="PIZZA"){
+                    itemsConsumable=itemsConsumable+"<tr><td>"+jsonItems[i].name+"</td> <td>"+jsonItems[i].value+"</td>"+
+                    "<td>"+jsonItems[i].weight+"</td>" + "<td>"+jsonItems[i].consumable+"</td> </tr>";
+                }
+            }
+            $("#bodyCon").html(itemsConsumable);
+        }
+    });
+
+
+    $("#btnExit").on("click", function () {
+        $(location).attr('href',"menu.html");
     });
 });

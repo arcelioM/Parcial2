@@ -17,8 +17,10 @@ session_start();
 
         $sendInventory=array();
         foreach($inventoryItems as $item){
-           
-            array_push($sendInventory,$item->__toString()."<br/>");
+           if($item->name=="PIZZA"){
+             array_push($sendInventory,createArrayItem($item));
+           }
+            
         }
 
         echo json_encode($sendInventory);
@@ -27,27 +29,16 @@ session_start();
 
     function createArrayItem($item){
         $itemArray=null;
-        if($item->name=="pizza"){
+        if($item->name=="PIZZA"){
             $itemArray=array(
                 "id"=> $item->id,
                 "name"=> $item->name,
                 "value"=> $item->value,
                 "weight"=>$item->weight,
-                "consumable"=>$item->consumable
+                "consumable"=>$item->isComsumed()
             );
         }
         
-        if($item->name=="sword" || $item->name=="bow"){
-
-            $itemArray=array(
-                "id"=> $item->id,
-                "name"=> $item->name,
-                "value"=> $item->value,
-                "weight"=>$item->weight,
-                "damage"=>$item->getDamage(),
-                "durability"=>$item->getDurability()
-            );
-        }
         return $itemArray;
     }
 

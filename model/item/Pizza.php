@@ -11,7 +11,7 @@ class Pizza extends Consumable{
     public function __construct(int $numberOfSlice, bool $spoiled){
         
         $this->numberOfSlice=$numberOfSlice;
-        parent::__construct("PIZZA",100,12,false,$spoiled);
+        parent::__construct("PIZZA",100,12,true,$spoiled);
     }
 
 

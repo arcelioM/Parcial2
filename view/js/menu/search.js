@@ -1,6 +1,16 @@
 $(function () {
     $("body").css('background-image','url("../img/fondo4.jpg")');
 
+
+    $("#item1").hover(function () {
+            // over
+            $("#item1").addClass("bg-opacity-100");
+        }, function () {
+            // out
+            $("#item1").addClass("bg-opacity-75");
+        }
+    );
+
     let pizza={
         "item": "pizza",
         "slices": 4,
