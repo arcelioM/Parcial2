@@ -19,8 +19,8 @@ abstract class Item implements Comparable{
         $this->name=$name;
         $this->value=$value;
         $this->weight=$weight;
-        Item::$id++;
-        Item::$numberOfItem++; 
+        self::$id++;
+        self::$numberOfItem++; 
     }
 
     public abstract function use():String;
@@ -85,6 +85,6 @@ abstract class Item implements Comparable{
      */ 
     public function getId()
     {
-        return Item::$id;
+        return self::$id;
     }
 }

@@ -6,13 +6,21 @@ use model\implementaciones\Inventory as Inventory;
 
 
 if($_SERVER["REQUEST_METHOD"]=='GET'){
-    //unset($_SESSION['inventory']);
     
     if(!isset($_SESSION['inventory'])){
         createInvetory();
         echo true;
+    }else{
+        echo false;
     }
     
+}elseif($_SERVER["REQUEST_METHOD"]=='POST'){
+    if(isset($_SESSION['inventory'])){
+        unset($_SESSION['inventory']);
+        echo true;
+    }else{
+        echo false;
+    }
 }
 
 function createInvetory(){

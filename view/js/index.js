@@ -1,5 +1,17 @@
 $(function () {
     
+
+    $.ajax({
+        type: "POST",
+        url: "../service/CreateInvetory.php",
+        success: function (response) {
+            console.log("Inventario eliminado: "+response);
+        },
+        error: function(error){
+            console.log(error);
+        }
+    });
+
     /**
      * *FUNCION QUE SE ENCARGAR DE GUARDAR INFO DE USUARIO EN SESSION
      */
