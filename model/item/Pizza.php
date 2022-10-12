@@ -24,4 +24,14 @@ class Pizza extends Consumable{
             return "Producto no disponible";
         }  
     }
+
+    
+
+    /**
+     * Get the value of numberOfSlice
+     */ 
+    public function getNumberOfSlice()
+    {
+        return $this->numberOfSlice;
+    }
 }

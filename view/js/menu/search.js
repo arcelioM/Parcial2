@@ -1,6 +1,10 @@
 $(function () {
     $("body").css('background-image','url("../img/fondo4.jpg")');
+    
 
+    function getValueItemShow(a,b){
+        return Math.floor(Math.random() * (b - a) + a);
+    }
 
     $("#item1").hover(function () {
             // over
@@ -13,33 +17,32 @@ $(function () {
 
     let pizza={
         "item": "pizza",
-        "slices": 4,
-        "spoiled": false
+        "slices": getValueItemShow(1,4),
+        "spoiled": getValueItemShow(0,1.9)
     };
+
 
     let bow={
         "item": "bow",
         "baseDamage": 0.40,
         "baseDurability": 50,
-        "value": 90,
-        "weight": 30
+        "value": getValueItemShow(80,100),
+        "weight": getValueItemShow(30,35)
     };
 
     let sword={
         "item": "sword",
         "baseDamage": 0.50,
         "baseDurability": 60,
-        "value": 95,
-        "weight": 45
+        "value": getValueItemShow(80,100),
+        "weight": getValueItemShow(40,45)
     };
 
     let items=[pizza,sword,bow];
 
-    function getValueItemShow(){
-        return Math.floor(Math.random() * (3 - 0) + 0);
-    }
+   
 
-    let ramdomValue=getValueItemShow();
+    let ramdomValue=getValueItemShow(0,3);
 
     let imgItem="<img id='itemSelect1'  src=../img/"+items[ramdomValue].item+".png alt='imagen 2' width='100%' height='100%'>";
 
@@ -47,7 +50,7 @@ $(function () {
     //alert(ramdomValue);
     $("#item1").append(imgItem);
 
-    ramdomValue=getValueItemShow();
+    ramdomValue=getValueItemShow(0,3);
 
     imgItem="<img id='itemSelect2' src=../img/"+items[ramdomValue].item+".png alt='imagen 2' width='100%' height='100%'>";
 

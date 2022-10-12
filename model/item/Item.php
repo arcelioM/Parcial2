@@ -79,4 +79,12 @@ abstract class Item implements Comparable{
         Item::$numberOfItem--;
     }
 
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return Item::$id;
+    }
 }

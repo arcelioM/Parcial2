@@ -31,11 +31,13 @@ session_start();
         $itemArray=null;
         if($item->name=="PIZZA"){
             $itemArray=array(
-                "id"=> $item->id,
+                "id"=> $item->getId(),
                 "name"=> $item->name,
                 "value"=> $item->value,
                 "weight"=>$item->weight,
-                "consumable"=>$item->isComsumed()
+                "consumable"=>$item->isComsumed(),
+                'spoiled'=>$item->isSpoiled(),
+                'numberOfSlice'=>$item->getNumberOfSlice()
             );
         }
         

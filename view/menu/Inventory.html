@@ -24,14 +24,14 @@
                 </article>
             </section>
 
-            <section id="consumable" class="col text-white d-flex ">
-                <div class="w-100 m-5 text-center">
+            <section id="consumable" class="col text-white d-flex  ">
+                <div class="w-100 m-5 text-center ">
                     <h2>Lista de comidas</h2>
                     <table  class="w-100 table bg-black bg-opacity-75 text-white text-center">
                         <thead>
                             <tr>
                                  <th>Name</th> <th>Value</th> <th>Weight</th>
-                                <th>Consumable</th>
+                                <th>Consumable</th> <th>Spoiled</th> <th>Number of Slice</th>
                             </tr>
                         </thead>
     
@@ -61,9 +61,17 @@
             </div>
         </section>
 
-        <section class="row justify-content-center">
+        <section class="row justify-content-center mb-3">
             <article class="col  d-flex justify-content-center">
                 <button id="btnExit" class="btn btn-primary">Menu Principal</button>
+            </article>
+
+            <article class="col  d-flex justify-content-center">
+                <button id="btnSortWeight" class="btn btn-success">Ordenar por Peso</button>
+            </article>
+
+            <article class="col  d-flex justify-content-center">
+                <button id="btnSortValue" class="btn btn-success">Ordenar por Palor</button>
             </article>
         </section>
     </main>
